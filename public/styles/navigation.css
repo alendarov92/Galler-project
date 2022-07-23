@@ -1,0 +1,80 @@
+body {
+    background-image: url('https://blog-assets.shawacademy.com/uploads/2020/03/sao_0532-min-5e6708506cb96.jpg');
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.auth {
+    width: 100px;
+    margin: 8em auto;
+}
+
+header,
+footer {
+    background-color: transparent;
+    width: 100%;
+    overflow: hidden;
+    color: white;
+    text-shadow: 0px 0px 10px black;
+}
+
+.home {
+    font-size: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    position: relative;
+    padding: 10px;
+}
+
+header h1 {
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    margin-bottom: auto;
+    text-shadow: 0px 0px 10px black;
+}
+
+header nav {
+    font-size: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+}
+
+header nav>* {
+    float: left;
+}
+
+footer {
+    padding: 0.5em;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+nav a {
+    margin: 0 0.5em;
+}
+
+nav a:hover {
+    cursor: pointer;
+    color: rgb(82, 133, 139);
+    font-weight: bolder;
+}
+
+.home:hover {
+    color: rgb(82, 133, 139);
+}
+
+#user,
+#guest {
+    margin: 0;
+    padding: 0;
+}
