@@ -1,17 +1,8 @@
-import { useEffect, useState } from "react";
 
-import * as gallerServices from '../../services/galleryServices'
 import LatestCard from "./LatetsCard/LatestCard";
 
-const Home = () => {
-    const [gallery, setGallery] = useState([]);
+const Home = ({ gallery }) => {
 
-    useEffect(() => {
-        gallerServices.getAll()
-            .then(result => {
-                setGallery(result)
-            }, [])
-    });
     return (
         <section id="welcome-world">
             <div className="welcome-message">

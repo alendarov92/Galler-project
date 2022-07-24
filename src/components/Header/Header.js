@@ -9,7 +9,7 @@ const Header = () => {
                     </Link>
                 </h1>
                 <nav>
-                    <Link to="/catalog">Catalog</Link>
+                    <Link to="/catalogue">Catalogue</Link>
                     {/* Logged-in users */}
                     <div id="user">
                         <Link to="/create">Create</Link>
