@@ -36,8 +36,8 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/create" element={<Create />} />
                     <Route path="/edit" element={<Edit />} />
-                    <Route path="/details" element={<Details />} />
                     <Route path="/catalogue" element={<Catalogue gallery={gallery}/>} />
+                    <Route path="/catalogue/:gameId" element={<Details />} />
                 </Routes>
             </main>
         </div>

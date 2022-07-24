@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const CardItem = ({ card }) => {
@@ -7,9 +8,9 @@ const CardItem = ({ card }) => {
                 <img src={card.imageUrl} />
                 <h6>{card.category}</h6>
                 <h2>{card.title}</h2>
-                <a href="#" className="details-button">
+                <Link to={`/catalogue/${card._id}`} className="details-button">
                     Details
-                </a>
+                </Link>
             </div>
         </div>
     )
