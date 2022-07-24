@@ -1,4 +1,5 @@
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import Catalogue from './components/Catalogue/Catalogue';
 import Create from './components/Create/Create';
 import Details from './components/Details/Details';
@@ -11,7 +12,9 @@ import Register from './components/Register/Register';
 function App() {
     return (
         <div id="box">
-            <Header />
+            <Routes>
+                <Route path="/" element={<Header />} />
+            </Routes>
 
             <main id="main-content">
             <Home />
