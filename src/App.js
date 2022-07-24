@@ -12,18 +12,19 @@ import Register from './components/Register/Register';
 function App() {
     return (
         <div id="box">
-            <Routes>
-                <Route path="/" element={<Header />} />
-            </Routes>
+            
+            <Header />
 
             <main id="main-content">
-            <Home />
-            <Login />
-            <Register />
-            <Create />
-            <Edit />
-            <Details />
-            <Catalogue />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/create" element={<Create />} />
+                <Route path="/edit" element={<Edit />} />
+                <Route path="/details" element={<Details />} />
+                <Route path="/catalogue" element={<Catalogue />} />
+            </Routes>
             </main>
         </div>
     );
