@@ -1,18 +1,19 @@
+import { Link } from "react-router-dom";
 
 
 const LatestCard = ({
     card
 }) => {
     return(
-        <div className="game">
+        <div className="card">
                         <div className="image-wrap">
                             <img src={card.imageUrl}/>
                         </div>
                         <h3>{card.title}</h3>
                         <div className="data-buttons">
-                            <a href="#" className="btn details-btn">
+                            <Link to={`/catalogue/${card._id}`} className="btn details-btn">
                                 Details
-                            </a>
+                            </Link>
                         </div>
                     </div>
     )

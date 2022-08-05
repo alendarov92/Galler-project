@@ -1,5 +1,5 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import uniqid from 'uniqid'
 
 import { useEffect, useState } from "react";
 import * as gallerServices from './services/galleryServices'
@@ -15,13 +15,26 @@ import Register from './components/Register/Register';
 
 function App() {
     const [gallery, setGallery] = useState([]);
+    const navigate = useNavigate()
+   
 
+
+    const addCardHandler = (cardData) => {
+        setGallery(state => [
+            ...state,
+            {
+                ...cardData,
+                _id: uniqid(),
+            },
+        ]);
+        navigate('/catalogue')
+    }
     useEffect(() => {
         gallerServices.getAll()
             .then(result => {
                 setGallery(result)
-            }, [])
-    });
+            })
+    }, []);
 
     return (
 
@@ -34,10 +47,10 @@ function App() {
                     <Route path="/" element={<Home gallery={gallery}/>} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route path="/create" element={<Create />} />
+                    <Route path="/create" element={<Create addCardHandler={addCardHandler} />} />
                     <Route path="/edit" element={<Edit />} />
                     <Route path="/catalogue" element={<Catalogue gallery={gallery}/>} />
-                    <Route path="/catalogue/:gameId" element={<Details />} />
+                    <Route path="/catalogue/:gameId" element={<Details gallery={gallery}/>} />
                 </Routes>
             </main>
         </div>
