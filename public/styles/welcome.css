@@ -10,13 +10,14 @@
 }
 
 #welcome-world .welcome-message {
-    display: inline-block;
+ 
     z-index: 999;
     margin: 0 auto;
     left: 0;
     top: 40%;
     text-align: center;
-    width: 30%
+    width: 30%;
+    margin-bottom: 30px; 
 }
 
 #welcome-world>img {
