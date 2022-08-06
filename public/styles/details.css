@@ -112,7 +112,8 @@
 
 .button {
     height: 15%;
-    background-color: #54557b;
+    background-color: green;
+    border-radius: 10px;
     padding: 14px;
     margin-top: auto;
     font-size: 21px;

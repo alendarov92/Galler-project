@@ -17,7 +17,7 @@ const Details = ({ gallery, addComment }) => {
                     <h1>{card.title}</h1>
                 </div>
                 <p className="text">
-                    {card.desription}
+                    {card.description}
                 </p>
 
                 <div className="buttons">

@@ -19,7 +19,7 @@
 }
 
 .allCards {
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -39,7 +39,7 @@
 
 .allCards-info>img {
     margin-top: -10px;
-    border-radius: 50%;
+    border-radius: 10px;
     height: 140px;
     position: absolute;
     top: 30px;
@@ -58,12 +58,14 @@
 .allCards-info>h2 {
     font-size: 20px;
     font-weight: 750;
-    color: #161618;
+    color: white;
+    text-shadow: 0px 0px 10px black;
 }
 
 .details-button {
-    background-color: #2A265F;
+    background-color: green;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
     color: #fff;
     font-size: 20px;
     position: absolute;

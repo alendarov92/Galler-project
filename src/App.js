@@ -2,7 +2,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import uniqid from 'uniqid'
 
 import { useEffect, useState } from "react";
-import * as gallerServices from './services/galleryServices'
+import * as galleryServices from './services/galleryServices'
 
 import Catalogue from './components/Catalogue/Catalogue';
 import Create from './components/Create/Create';
@@ -30,7 +30,7 @@ function App() {
         navigate('/catalogue')
     }
     useEffect(() => {
-        gallerServices.getAll()
+        galleryServices.getAll()
             .then(result => {
                 setGallery(result)
             })
