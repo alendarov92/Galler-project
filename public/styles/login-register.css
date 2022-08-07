@@ -86,7 +86,7 @@ input[type="email"] {
     height: 50px;
     margin-top: 10px;
     font-size: 24px;
-    border-radius: 50px;
+    border-radius: 10px;
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
 }
 

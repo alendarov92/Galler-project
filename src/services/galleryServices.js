@@ -1,6 +1,7 @@
+import * as request from "./requester";
+
 const baseUrl = 'http://localhost:3030';
 
-export const getAll = () => {
-    return fetch(`${baseUrl}/jsonstore/gallery/gallery`)
-        .then(res => res.json())
-}
+export const getAll = () => request.get(`${baseUrl}/jsonstore/gallery/gallery`)
+
+ 

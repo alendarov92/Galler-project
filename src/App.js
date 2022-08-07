@@ -3,6 +3,7 @@ import uniqid from 'uniqid'
 
 import { useEffect, useState } from "react";
 import * as galleryServices from './services/galleryServices'
+import { AuthContext } from './contexts/AuthContext';
 
 import Catalogue from './components/Catalogue/Catalogue';
 import Create from './components/Create/Create';
@@ -15,9 +16,13 @@ import Register from './components/Register/Register';
 
 function App() {
     const [gallery, setGallery] = useState([]);
-    const navigate = useNavigate()
-   
+    const [auth, setAuth] = useState({});
 
+    const navigate = useNavigate();
+
+    const loginHeandler = (authData) => {
+        setAuth(authData)
+    }
 
     const addCardHandler = (cardData) => {
         setGallery(state => [
@@ -37,23 +42,24 @@ function App() {
     }, []);
 
     return (
+        <AuthContext.Provider value={{auth, loginHeandler}}>
+            <div id="box">
 
-        <div id="box">
+                <Header />
 
-            <Header />
-
-            <main id="main-content">
-                <Routes>
-                    <Route path="/" element={<Home gallery={gallery}/>} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/create" element={<Create addCardHandler={addCardHandler} />} />
-                    <Route path="/edit" element={<Edit />} />
-                    <Route path="/catalogue" element={<Catalogue gallery={gallery}/>} />
-                    <Route path="/catalogue/:gameId" element={<Details gallery={gallery}/>} />
-                </Routes>
-            </main>
-        </div>
+                <main id="main-content">
+                    <Routes>
+                        <Route path="/" element={<Home gallery={gallery} />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/create" element={<Create addCardHandler={addCardHandler} />} />
+                        <Route path="/edit" element={<Edit />} />
+                        <Route path="/catalogue" element={<Catalogue gallery={gallery} />} />
+                        <Route path="/catalogue/:gameId" element={<Details gallery={gallery} />} />
+                    </Routes>
+                </main>
+            </div>
+        </AuthContext.Provider>
     );
 }
 
