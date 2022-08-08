@@ -12,6 +12,7 @@ import Edit from './components/Edit/Edit';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
 
     const loginHeandler = (authData) => {
         setAuth(authData)
+    }
+
+    const userLogout = () => {
+        setAuth({});
     }
 
     const addCardHandler = (cardData) => {
@@ -42,7 +47,7 @@ function App() {
     }, []);
 
     return (
-        <AuthContext.Provider value={{user: auth, loginHeandler}}>
+        <AuthContext.Provider value={{user: auth, loginHeandler, userLogout}}>
             <div id="box">
 
                 <Header />
@@ -52,6 +57,7 @@ function App() {
                         <Route path="/" element={<Home gallery={gallery} />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/logout" element={<Logout /> } />
                         <Route path="/create" element={<Create addCardHandler={addCardHandler} />} />
                         <Route path="/edit" element={<Edit />} />
                         <Route path="/catalogue" element={<Catalogue gallery={gallery} />} />
