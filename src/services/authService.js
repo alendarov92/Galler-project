@@ -4,7 +4,7 @@ const baseUrl = 'http://localhost:3030/users';
 
 
 export const login = (email, password) =>
-    requset.psot(`${baseUrl}/login`, { email, password });
+    requset.post(`${baseUrl}/login`, { email, password });
 
 
 export const logout = async (accessToken) => {
@@ -22,4 +22,4 @@ export const logout = async (accessToken) => {
 }
 
 export const register = (email, password) =>
-    requset.psot(`${baseUrl}/register`, { email, password });
+    requset.post(`${baseUrl}/register`, { email, password });

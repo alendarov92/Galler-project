@@ -1,9 +1,9 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import uniqid from 'uniqid'
-
 import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from 'react-router-dom';
+
 import * as galleryServices from './services/galleryServices'
 import { AuthContext } from './contexts/AuthContext';
+import { CardContext } from "./contexts/CardContext";
 
 import Catalogue from './components/Catalogue/Catalogue';
 import Create from './components/Create/Create';
@@ -33,12 +33,13 @@ function App() {
     const addCardHandler = (cardData) => {
         setGallery(state => [
             ...state,
-            {
-                ...cardData,
-                _id: uniqid(),
-            },
+            cardData,
         ]);
         navigate('/catalogue')
+    }
+
+    const cardEdit = (cardId, cardData) => {
+        setGallery(state => state.map(x => x._id === cardId ? cardData : x))
     }
     useEffect(() => {
         galleryServices.getAll()
@@ -52,6 +53,7 @@ function App() {
             <div id="box">
 
                 <Header />
+                <CardContext.Provider value={{gallery, addCardHandler, cardEdit}}>
 
                 <main id="main-content">
                     <Routes>
@@ -59,15 +61,17 @@ function App() {
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/logout" element={<Logout /> } />
-                        <Route path="/create" element={<Create addCardHandler={addCardHandler} />} />
-                        <Route path="/edit" element={<Edit />} />
+                        <Route path="/create" element={<Create />} />
+                        <Route path="/gallery/gallery/:cardId/edit" element={<Edit />} />
                         <Route path="/catalogue" element={<Catalogue gallery={gallery} />} />
-                        <Route path="/catalogue/:gameId" element={<Details gallery={gallery} />} />
+                        <Route path="/catalogue/:cardId" element={<Details gallery={gallery} />} />
                     </Routes>
                 </main>
+                </CardContext.Provider>
             </div>
         </AuthContext.Provider>
     );
 }
 
 export default App;
+

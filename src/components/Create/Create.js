@@ -1,12 +1,21 @@
-const Create = ({addCardHandler}) => {
+import { useContext } from 'react';
+import { CardContext } from '../../contexts/CardContext';
+import * as galleryServices from '../../services/galleryServices'
+
+const Create = () => {
+    const { addCardHandler } = useContext(CardContext);
+    
     const onSubmit = (e) => {
         e.preventDefault();
 
         const cardData = Object.fromEntries(new FormData(e.target));
 
-        console.log(cardData);
+        galleryServices.create(cardData)
+            .then(result => {
+            addCardHandler(result)
+        })
 
-        addCardHandler(cardData)
+
     }
     return (
         <section id="create-page" className="auth">
@@ -27,7 +36,7 @@ const Create = ({addCardHandler}) => {
                         name="imageUrl"
                         placeholder="Upload a photo..."
                     />
-                    <label htmlFor="summary">Description:</label>
+                    <label htmlFor="summary">Summary:</label>
                     <textarea name="summary" id="summary" defaultValue={""} />
                     <input
                         className="btn submit"

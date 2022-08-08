@@ -1,6 +1,7 @@
 import CardItem from "./CardItem/CardItem";
 
 const Catalogue = ({ gallery }) => {
+    console.log(gallery);
     return (
         <section id="catalog-page">
             <h1>All Cards</h1>

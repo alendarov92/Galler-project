@@ -1,7 +1,13 @@
 import * as request from "./requester";
 
-const baseUrl = 'http://localhost:3030';
+const baseUrl = 'http://localhost:3030/data/games';
 
-export const getAll = () => request.get(`${baseUrl}/jsonstore/gallery/gallery`)
+export const getAll = () => request.get(baseUrl)
+
+export const getOne = (cardId) => request.get(`${baseUrl}/${cardId}`)
+
+export const create = (cardData) => request.post(baseUrl, cardData);
+
+export const edit = (cardId, cardData) => request.put(`${baseUrl}/${cardId}`,cardData);
 
  
