@@ -13,8 +13,8 @@ const Home = ({ gallery }) => {
                 src="https://i.pinimg.com/736x/72/16/a7/7216a77ec1ae893b9b38b3b596f69392.jpg"
                 alt="hero"
             />
+                <h1 className="latest-pic">Latest Pictures</h1>
             <div id="home-page">
-                <h1>Latest Pictures</h1>
 
                 {gallery.length > 0
                     ? gallery.map(x => <LatestCard key={x._id} card={x} />)

@@ -51,7 +51,7 @@ function App() {
     useEffect(() => {
         galleryServices.getAll()
             .then(result => {
-                setGallery(result)
+                setGallery(Object.values(result))
             })
     }, []);
 

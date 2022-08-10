@@ -1,3 +1,4 @@
+import userEvent from "@testing-library/user-event";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { CardContext } from "../../contexts/CardContext";
@@ -39,12 +40,12 @@ const Details = () => {
             <div className="info-section">
                 <div className="card-header">
                     <img className="card-img" src={cuurentCard.imageUrl} />
-                    <h1>{cuurentCard.title}</h1>
+                    <h1 className="card-title">{cuurentCard.title}</h1>
                 </div>
                 <p className="text">
                     {cuurentCard.summary}
                 </p>
-
+                
                 <div className="buttons">
                     <Link to={`/gallery/gallery/${cuurentCard._id}/edit`} className="button">
                         Edit

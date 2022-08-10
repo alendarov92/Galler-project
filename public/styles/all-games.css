@@ -1,6 +1,5 @@
 #catalog-page {
     background-color: transparent;
-    box-shadow: 0px 0px 40px 0px;
     overflow: hidden;
     border-radius: 10px;
     padding: 20px;
@@ -15,20 +14,20 @@
     font-weight: 700;
     margin-top: 10px;
     text-transform: uppercase;
+    border-bottom: 3px solid black;
     text-align: center;
 }
 
 .allCards {
     background-color: transparent;
-    border-radius: 10px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid black;
     display: flex;
     max-width: 50%;
     margin: 200px;
     overflow: hidden;
     width: 600px auto;
     min-height: 210px;
-    height: auto;
+    height: auto
 }
 
 .allCards-info {

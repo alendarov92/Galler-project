@@ -23,6 +23,9 @@ h5,
 h6 {
     padding: 0.2em 1rem;
 }
+.card-title {
+    font-size: 55px;
+}
 
 p,
 div {
