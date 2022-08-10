@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { CardContext } from "../../contexts/CardContext";
 
 import * as galleryServices from '../../services/galleryServices'
 
@@ -7,6 +8,8 @@ const Details = () => {
 
     const [cuurentCard, setCurrentCard] = useState({});
 
+    const navigate = useNavigate();
+    const { cardDelete } = useContext(CardContext)
     const { cardId } = useParams();
 
     useEffect(() => {
@@ -15,6 +18,18 @@ const Details = () => {
                 setCurrentCard(result);
             })
     }, [])
+
+
+    const onDelete = () => {
+        const confirmation = window.confirm('Are you sure you want to DELETE this Card?');
+        if (confirmation) {
+            galleryServices.remove(cardId)
+                .then(() => {
+                    cardDelete(cardId)
+                    navigate('/catalogue')
+            })
+        }
+    }
 
 
 
@@ -34,9 +49,9 @@ const Details = () => {
                     <Link to={`/gallery/gallery/${cuurentCard._id}/edit`} className="button">
                         Edit
                     </Link>
-                    <Link to={'/'} className="button">
+                    <button onClick={onDelete} className="button">
                         Delete
-                    </Link>
+                    </button>
                 </div>
             </div>
 

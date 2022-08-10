@@ -41,6 +41,13 @@ function App() {
     const cardEdit = (cardId, cardData) => {
         setGallery(state => state.map(x => x._id === cardId ? cardData : x))
     }
+
+    const cardDelete = async (cardId) => {
+        await galleryServices.remove(cardId)
+
+        setGallery(state => state.filter(x => x._id !== cardId));
+    }
+
     useEffect(() => {
         galleryServices.getAll()
             .then(result => {
@@ -49,24 +56,24 @@ function App() {
     }, []);
 
     return (
-        <AuthContext.Provider value={{user: auth, loginHeandler, userLogout}}>
+        <AuthContext.Provider value={{ user: auth, loginHeandler, userLogout }}>
             <div id="box">
 
                 <Header />
-                <CardContext.Provider value={{gallery, addCardHandler, cardEdit}}>
+                <CardContext.Provider value={{ gallery, addCardHandler, cardEdit, cardDelete }}>
 
-                <main id="main-content">
-                    <Routes>
-                        <Route path="/" element={<Home gallery={gallery} />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-                        <Route path="/logout" element={<Logout /> } />
-                        <Route path="/create" element={<Create />} />
-                        <Route path="/gallery/gallery/:cardId/edit" element={<Edit />} />
-                        <Route path="/catalogue" element={<Catalogue gallery={gallery} />} />
-                        <Route path="/catalogue/:cardId" element={<Details gallery={gallery} />} />
-                    </Routes>
-                </main>
+                    <main id="main-content">
+                        <Routes>
+                            <Route path="/" element={<Home gallery={gallery} />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
+                            <Route path="/logout" element={<Logout />} />
+                            <Route path="/create" element={<Create />} />
+                            <Route path="/gallery/gallery/:cardId/edit" element={<Edit />} />
+                            <Route path="/catalogue" element={<Catalogue gallery={gallery} />} />
+                            <Route path="/catalogue/:cardId" element={<Details gallery={gallery} />} />
+                        </Routes>
+                    </main>
                 </CardContext.Provider>
             </div>
         </AuthContext.Provider>

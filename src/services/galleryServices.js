@@ -10,4 +10,4 @@ export const create = (cardData) => request.post(baseUrl, cardData);
 
 export const edit = (cardId, cardData) => request.put(`${baseUrl}/${cardId}`,cardData);
 
- 
+ export const remove = (cardId) => request.del(`${baseUrl}/${cardId}`)

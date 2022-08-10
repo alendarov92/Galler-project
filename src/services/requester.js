@@ -23,7 +23,7 @@ const requset = async (method, url, data) => {
                 method,
                 headers: {
                     ...headers,
-                    'content-type': 'application/json'
+                    'content-type': 'application.json'
                 },
                 body: JSON.stringify(data)
             })
