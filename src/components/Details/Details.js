@@ -50,7 +50,7 @@ const Details = () => {
                     <Link to={`/gallery/gallery/${cuurentCard._id}/edit`} className="button">
                         Edit
                     </Link>
-                    <button onClick={onDelete} className="button">
+                    <button  onClick={onDelete} className="button">
                         Delete
                     </button>
                 </div>
